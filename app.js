@@ -18,9 +18,15 @@ const corsPromise = () =>
     resolve(request);
   });
 
-const setColor = () => {
-  document.getElementById('blue-text').style.color = "blue";
-};
+  corsPromise().then(
+    (request) =>
+      (request.onload = request.onerror = () => { 
+        const plantData = JSON.parse(request.response).data;
+        const myPlantData = plantData.filter(plant_instance => plant_instance.year == 1753);
+        console.log(myPlantData);
+        addPlants(myPlantData);
+      })
+  );
 
 const addPlants = (plantData) => {
   plantData.forEach(plant => {
@@ -56,14 +62,3 @@ const createCard = (plant) => {
 
   return card;
 }
-
-corsPromise().then(
-  (request) =>
-    (request.onload = request.onerror = () => { 
-      const plantData = JSON.parse(request.response).data;
-      const myPlantData = plantData.filter(plant_instance => plant_instance.year == 1753);
-      console.log(myPlantData);
-      addPlants(myPlantData);
-    })
-);
-
