@@ -37,6 +37,7 @@ const addPlants = (plantData) => {
 
 const createCard = (plant) => {
   const card = document.createElement('div');
+  card.className = "card";
   card.setAttribute('class', 'container');
 
   const name = document.createElement('h2');
