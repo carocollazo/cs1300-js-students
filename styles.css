@@ -1,0 +1,51 @@
+html body {
+    background-color: lightblue;
+}
+
+header {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.title {
+    color: green;
+    font-size: 100px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    /* from https://www.codesdope.com/blog/article/adding-outline-to-text-using-css/ */
+    -webkit-text-stroke-width: 2px; 
+    -webkit-text-stroke-color: black;
+}
+
+.subtitle {
+    text-align: center;
+}
+
+.container {
+
+}
+
+.h-2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+}
+
+.h-3 {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: 25px;
+    color: white;
+}
+
+.h-4 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    color: white;
+}
+
+.image {
+    width: 100px;
+    height: auto;
+}
