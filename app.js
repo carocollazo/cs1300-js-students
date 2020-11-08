@@ -4,29 +4,19 @@ var apiToken = "?token=YLcORs_GvdneK_n5WVoAShvt2_tsaOpkpNPysYrfY4c";
 // CORS stands for "cross origin resource sharing" -- you'll be making http requests in order
 // DON'T CHANGE THIS: fetches the data from the API endpoint
 const doCORSRequest = (options) => {
-  var x = new XMLHttpRequest(); //CHECK
+  var x = new XMLHttpRequest(); 
   x.open("GET", corsApiUrl + options.url);
   x.send(options.data);
   return x;
 };
 
 const corsPromise = () =>
-  new Promise((resolve, reject) => { //CHECK
+  new Promise((resolve, reject) => { 
     const request = doCORSRequest({
       url: "https://trefle.io/api/v1/plants" + apiToken,
     });
     resolve(request);
   });
-
-  corsPromise().then(
-    (request) =>
-      (request.onload = request.onerror = () => { 
-        const plantData = JSON.parse(request.response).data;
-        const myPlantData = plantData.filter(plant_instance => plant_instance.year == 1753);
-        console.log(myPlantData);
-        addPlants(myPlantData);
-      })
-  );
 
 const addPlants = (plantData) => {
   plantData.forEach(plant => {
@@ -63,3 +53,14 @@ const createCard = (plant) => {
 
   return card;
 }
+
+corsPromise().then(
+  (request) =>
+    (request.onload = request.onerror = () => { 
+      const plantData = JSON.parse(request.response).data;
+      print(plantData);
+      const myPlantData = plantData.filter(plant_instance => plant_instance.year == 1753);
+      console.log(myPlantData);
+      addPlants(myPlantData);
+    })
+);
