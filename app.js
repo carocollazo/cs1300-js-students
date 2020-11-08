@@ -27,29 +27,28 @@ const addPlants = (plantData) => {
 
 const createCard = (plant) => {
   const card = document.createElement('div');
-  card.className = "card";
-  card.setAttribute('class', 'container');
+  card.setAttribute('class', 'card');
+
+  const image = document.createElement('img');
+  image.src = plant.image_url;
+  image.setAttribute('class', 'image');
 
   const name = document.createElement('h2');
   name.innerHTML = plant.common_name;
   name.setAttribute('class', 'h-2');
 
   const scientificName = document.createElement('h3');
-  name.innerHTML = plant.scientific_name;
+  scientificName.innerHTML = plant.scientific_name;
   scientificName.setAttribute('class', 'h-3');
   
-  const flowerColor = documen.createElement('h4');
-  year.innerHTML = plant.flower_color;
+  const flowerColor = document.createElement('h4');
+  flowerColor.innerHTML = plant.flower_color;
   flowerColor.setAttribute('class', 'h-4');
 
-  const image = document.createElement('img');
-  image.src = plant.image_url;
-  image.setAttribute('class', 'image');
-
+  card.appendChild(image);
   card.appendChild(name);
   card.appendChild(scientificName);
   card.appendChild(flowerColor);
-  card.appendChild(image);
 
   return card;
 }
@@ -58,7 +57,6 @@ corsPromise().then(
   (request) =>
     (request.onload = request.onerror = () => { 
       const plantData = JSON.parse(request.response).data;
-      print(plantData);
       const myPlantData = plantData.filter(plant_instance => plant_instance.year == 1753);
       console.log(myPlantData);
       addPlants(myPlantData);
