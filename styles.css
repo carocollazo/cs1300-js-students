@@ -17,13 +17,18 @@ html body {
     text-align: center;
 }
 
+.plants {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .card {
     text-align: center;
 }
 
 .image {
-    width: 250px;
-    height: auto;
+    width: auto;
+    height: 250px;
 }
 
 .h-2 {
@@ -38,10 +43,4 @@ html body {
     font-style: italic;
     font-size: 25px;
     color: rgb(44, 44, 44);
-}
-
-.h-4 {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
-    color: black;
 }

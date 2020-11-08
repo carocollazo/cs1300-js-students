@@ -41,14 +41,9 @@ const createCard = (plant) => {
   scientificName.innerHTML = plant.scientific_name;
   scientificName.setAttribute('class', 'h-3');
   
-  const flowerColor = document.createElement('h4');
-  flowerColor.innerHTML = plant.flower_color;
-  flowerColor.setAttribute('class', 'h-4');
-
   card.appendChild(image);
   card.appendChild(name);
   card.appendChild(scientificName);
-  card.appendChild(flowerColor);
 
   return card;
 }
